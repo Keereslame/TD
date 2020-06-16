@@ -1,0 +1,110 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/share/npm/bin/npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '--scripts-prepend-node-path=auto' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly install normalizeTree
+8 silly loadCurrentTree Finishing
+9 silly loadIdealTree Starting
+10 silly install loadIdealTree
+11 silly cloneCurrentTree Starting
+12 silly install cloneCurrentTreeToIdealTree
+13 silly cloneCurrentTree Finishing
+14 silly loadShrinkwrap Starting
+15 silly install loadShrinkwrap
+16 silly loadShrinkwrap Finishing
+17 silly loadAllDepsIntoIdealTree Starting
+18 silly install loadAllDepsIntoIdealTree
+19 silly fetchNamedPackageData vue-echarts
+20 silly mapToRegistry name vue-echarts
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/vue-echarts
+24 verbose request uri https://registry.npmjs.org/vue-echarts
+25 verbose request no auth needed
+26 info attempt registry request try #1 at 08:56:07
+27 verbose request id 3832982eb6da7d27
+28 verbose etag W/"11d1981086d5d9e8f37e0b28b6172927"
+29 verbose lastModified Fri, 24 Jan 2020 03:40:39 GMT
+30 http request GET https://registry.npmjs.org/vue-echarts
+31 http 304 https://registry.npmjs.org/vue-echarts
+32 verbose headers { date: 'Tue, 16 Jun 2020 06:56:08 GMT',
+32 verbose headers   connection: 'keep-alive',
+32 verbose headers   'set-cookie':
+32 verbose headers    [ '__cfduid=d8290dae62bba2c37af9c54c3155b8e911592290567; expires=Thu, 16-Jul-20 06:56:07 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+32 verbose headers   'cf-ray': '5a42a1111db4cea3-GVA',
+32 verbose headers   'cache-control': 'public, max-age=300',
+32 verbose headers   etag: '"11d1981086d5d9e8f37e0b28b6172927"',
+32 verbose headers   'last-modified': 'Fri, 24 Jan 2020 03:40:39 GMT',
+32 verbose headers   vary: 'Accept-Encoding',
+32 verbose headers   'cf-cache-status': 'REVALIDATED',
+32 verbose headers   'cf-request-id': '035d82fead0000cea318ba2200000001',
+32 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+32 verbose headers   server: 'cloudflare' }
+33 silly get cb [ 304,
+33 silly get   { date: 'Tue, 16 Jun 2020 06:56:08 GMT',
+33 silly get     connection: 'keep-alive',
+33 silly get     'set-cookie':
+33 silly get      [ '__cfduid=d8290dae62bba2c37af9c54c3155b8e911592290567; expires=Thu, 16-Jul-20 06:56:07 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+33 silly get     'cf-ray': '5a42a1111db4cea3-GVA',
+33 silly get     'cache-control': 'public, max-age=300',
+33 silly get     etag: '"11d1981086d5d9e8f37e0b28b6172927"',
+33 silly get     'last-modified': 'Fri, 24 Jan 2020 03:40:39 GMT',
+33 silly get     vary: 'Accept-Encoding',
+33 silly get     'cf-cache-status': 'REVALIDATED',
+33 silly get     'cf-request-id': '035d82fead0000cea318ba2200000001',
+33 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+33 silly get     server: 'cloudflare' } ]
+34 verbose etag https://registry.npmjs.org/vue-echarts from cache
+35 verbose get saving vue-echarts to /home/philippine/.npm/registry.npmjs.org/vue-echarts/.cache.json
+36 silly fetchPackageMetaData Error: No compatible version found: vue-echarts@^6.13.6
+36 silly fetchPackageMetaData Valid install targets:
+36 silly fetchPackageMetaData 5.0.0-beta.0, 4.1.0, 4.0.4, 4.0.3, 4.0.2, 4.0.1, 4.0.0, 4.0.0-beta.1, 4.0.0-beta.0, 3.1.3, 3.1.2, 3.1.1, 3.1.0, 3.0.9, 3.0.8, 3.0.7, 3.0.6, 3.0.5, 3.0.4, 3.0.3, 3.0.2, 3.0.1, 3.0.0, 2.6.0, 2.5.1, 2.5.0, 2.4.1, 2.4.0, 2.3.9, 2.3.8, 2.3.7, 2.3.6, 2.3.5, 2.3.4, 2.3.3, 2.3.2, 2.3.1, 2.3.0, 2.2.0, 2.1.0, 2.0.0, 1.0.0, 0.1.2, 0.1.1, 0.1.0, 0.0.0
+36 silly fetchPackageMetaData
+36 silly fetchPackageMetaData     at pickVersionFromRegistryDocument (/usr/share/npm/lib/fetch-package-metadata.js:156:16)
+36 silly fetchPackageMetaData     at /usr/share/npm/node_modules/iferr/index.js:13:50
+36 silly fetchPackageMetaData     at /usr/share/npm/lib/utils/pulse-till-done.js:19:8
+36 silly fetchPackageMetaData     at saved (/usr/share/npm/lib/cache/caching-client.js:168:7)
+36 silly fetchPackageMetaData     at /usr/share/npm/node_modules/graceful-fs/polyfills.js:210:7
+36 silly fetchPackageMetaData     at FSReqWrap.oncomplete (fs.js:135:15)
+36 silly fetchPackageMetaData  error for vue-echarts@^6.13.6 Error: No compatible version found: vue-echarts@^6.13.6
+36 silly fetchPackageMetaData Valid install targets:
+36 silly fetchPackageMetaData 5.0.0-beta.0, 4.1.0, 4.0.4, 4.0.3, 4.0.2, 4.0.1, 4.0.0, 4.0.0-beta.1, 4.0.0-beta.0, 3.1.3, 3.1.2, 3.1.1, 3.1.0, 3.0.9, 3.0.8, 3.0.7, 3.0.6, 3.0.5, 3.0.4, 3.0.3, 3.0.2, 3.0.1, 3.0.0, 2.6.0, 2.5.1, 2.5.0, 2.4.1, 2.4.0, 2.3.9, 2.3.8, 2.3.7, 2.3.6, 2.3.5, 2.3.4, 2.3.3, 2.3.2, 2.3.1, 2.3.0, 2.2.0, 2.1.0, 2.0.0, 1.0.0, 0.1.2, 0.1.1, 0.1.0, 0.0.0
+36 silly fetchPackageMetaData
+36 silly fetchPackageMetaData     at pickVersionFromRegistryDocument (/usr/share/npm/lib/fetch-package-metadata.js:156:16)
+36 silly fetchPackageMetaData     at /usr/share/npm/node_modules/iferr/index.js:13:50
+36 silly fetchPackageMetaData     at /usr/share/npm/lib/utils/pulse-till-done.js:19:8
+36 silly fetchPackageMetaData     at saved (/usr/share/npm/lib/cache/caching-client.js:168:7)
+36 silly fetchPackageMetaData     at /usr/share/npm/node_modules/graceful-fs/polyfills.js:210:7
+36 silly fetchPackageMetaData     at FSReqWrap.oncomplete (fs.js:135:15)
+37 silly rollbackFailedOptional Starting
+38 silly rollbackFailedOptional Finishing
+39 silly runTopLevelLifecycles Starting
+40 silly runTopLevelLifecycles Finishing
+41 silly install printInstalled
+42 verbose stack Error: No compatible version found: vue-echarts@^6.13.6
+42 verbose stack Valid install targets:
+42 verbose stack 5.0.0-beta.0, 4.1.0, 4.0.4, 4.0.3, 4.0.2, 4.0.1, 4.0.0, 4.0.0-beta.1, 4.0.0-beta.0, 3.1.3, 3.1.2, 3.1.1, 3.1.0, 3.0.9, 3.0.8, 3.0.7, 3.0.6, 3.0.5, 3.0.4, 3.0.3, 3.0.2, 3.0.1, 3.0.0, 2.6.0, 2.5.1, 2.5.0, 2.4.1, 2.4.0, 2.3.9, 2.3.8, 2.3.7, 2.3.6, 2.3.5, 2.3.4, 2.3.3, 2.3.2, 2.3.1, 2.3.0, 2.2.0, 2.1.0, 2.0.0, 1.0.0, 0.1.2, 0.1.1, 0.1.0, 0.0.0
+42 verbose stack
+42 verbose stack     at pickVersionFromRegistryDocument (/usr/share/npm/lib/fetch-package-metadata.js:156:16)
+42 verbose stack     at /usr/share/npm/node_modules/iferr/index.js:13:50
+42 verbose stack     at /usr/share/npm/lib/utils/pulse-till-done.js:19:8
+42 verbose stack     at saved (/usr/share/npm/lib/cache/caching-client.js:168:7)
+42 verbose stack     at /usr/share/npm/node_modules/graceful-fs/polyfills.js:210:7
+42 verbose stack     at FSReqWrap.oncomplete (fs.js:135:15)
+43 verbose cwd /home/philippine/Documents/TD/Code/Dashboard_test/dashboard
+44 error Linux 4.15.0-106-generic
+45 error argv "/usr/bin/node" "/usr/share/npm/bin/npm-cli.js" "install" "--scripts-prepend-node-path=auto"
+46 error node v8.10.0
+47 error npm  v3.5.2
+48 error No compatible version found: vue-echarts@^6.13.6
+48 error Valid install targets:
+48 error 5.0.0-beta.0, 4.1.0, 4.0.4, 4.0.3, 4.0.2, 4.0.1, 4.0.0, 4.0.0-beta.1, 4.0.0-beta.0, 3.1.3, 3.1.2, 3.1.1, 3.1.0, 3.0.9, 3.0.8, 3.0.7, 3.0.6, 3.0.5, 3.0.4, 3.0.3, 3.0.2, 3.0.1, 3.0.0, 2.6.0, 2.5.1, 2.5.0, 2.4.1, 2.4.0, 2.3.9, 2.3.8, 2.3.7, 2.3.6, 2.3.5, 2.3.4, 2.3.3, 2.3.2, 2.3.1, 2.3.0, 2.2.0, 2.1.0, 2.0.0, 1.0.0, 0.1.2, 0.1.1, 0.1.0, 0.0.0
+49 error If you need help, you may report this error at:
+49 error     <https://github.com/npm/npm/issues>
+50 verbose exit [ 1, true ]
