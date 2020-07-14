@@ -6,6 +6,7 @@ import Calendar from "../layout/Calendar";
 import Insert from "../layout/Insert";
 import Stock from "../layout/Stock";
 import Task from "../layout/Task";
+import Measure from "../layout/Measure";
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
             path: '/Task',
             name: 'Task',
             component: Task
+        },
+        {
+            path: '/Measure',
+            name: 'Measure',
+            component: Measure
         }
 
     ]

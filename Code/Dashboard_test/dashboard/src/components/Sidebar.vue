@@ -19,6 +19,9 @@
             <b-nav-item href="#/Task">
                 <b-icon-pencil-square class="item"></b-icon-pencil-square>
             </b-nav-item>
+            <b-nav-item href="#/Measure">
+                <b-icon-pencil-square class="item"></b-icon-pencil-square>
+            </b-nav-item>
         </b-nav>
     </div>
 </template>

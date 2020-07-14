@@ -1,0 +1,1 @@
+db.getCollection('lowimpact_food').find({})
