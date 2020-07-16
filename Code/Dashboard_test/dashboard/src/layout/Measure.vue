@@ -7,6 +7,7 @@
                 <b-card-group deck class="mb-3">
                     <Temperature_lht65/>
                     <Humidity_lht65/>
+                    <Temperature_amg883/>
                 </b-card-group>
             </b-col>
         </b-row>
@@ -18,14 +19,16 @@
     import Sidebar from "../components/Sidebar";
     import Temperature_lht65 from "../components/Temperature_lht65";
     import Humidity_lht65 from "../components/Humidity_lht65";
+    import Temperature_amg883 from "../components/Temperature_amg8833";
 
     export default {
         name: "Measure",
         components: {
+            Temperature_amg883,
             Humidity_lht65,
             Sidebar,
             Navbar,
-            Temperature_lht65
+            Temperature_lht65,
         },
     }
 </script>

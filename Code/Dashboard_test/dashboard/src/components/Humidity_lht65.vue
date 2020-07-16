@@ -19,8 +19,8 @@
         data() {
             return {
                 client: new Influx.InfluxDB({
-                    host: 'localhost',
-                    database: 'ttn_lowimpact_food',
+                    host: '192.168.1.70',
+                    database: 'lowimpact_food',
                     port:8086
                 }),
                 hum_series: [],
@@ -49,10 +49,10 @@
                     });
 
 
-                    //console.log("Temperature serie 1")
+                    //console.log("Humidity serie 1")
                     //console.log(humidity_Serie1)
                     let finale_series = {
-                        name: 'Température du boîtier',
+                        name: 'Humidité du boîtier',
                         type: 'line',
                         data: humidity_Serie1
                     }
@@ -62,8 +62,13 @@
                 }).catch(error => console.log(error))
             }
         },
-        mounted() {
+        created() {
             this.loadDataChart()
+        },
+        mounted() {
+            setInterval(function(){
+                this.loadDataChart()
+            }.bind(this), 300000) //refresh query toutes les 5min
         }
     }
 </script>
