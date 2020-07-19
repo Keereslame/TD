@@ -31,8 +31,8 @@ while True:
     for row in amg.pixels:
         value = []
         # Pad to 1 decimal place
-        #print(["{0:.1f}".format(temp) for temp in row])
-        #print("")
+        print(["{0:.1f}".format(temp) for temp in row])
+        print("")
         for temp in row:
             value.append(temp)
         #print(value)
