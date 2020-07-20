@@ -7,22 +7,19 @@
                 <div class="mt-3">
                     <b-card-group deck class="mb-3">
                         <b-card border-variant="light" header="Quantité de vers" class="text-center">
-                            <Bar_ECharts/>
+                            <Data_query/>
                         </b-card>
 
                         <b-card border-variant="light" header="Nombre de bacs" class="text-center">
-                            <Bar_ECharts/>
                         </b-card>
                     </b-card-group>
                 </div>
                 <div class="mt-3">
                     <b-card-group deck class="mb-3">
                         <b-card border-variant="light" header="Feed / Substrat" class="text-center">
-                            <Bar_ECharts/>
                         </b-card>
 
                         <b-card border-variant="light" header="Stock de vers" class="text-center">
-                            <Bar_ECharts/>
                         </b-card>
                     </b-card-group>
                 </div>
@@ -35,14 +32,14 @@
 <script>
     import Navbar from "../components/Navbar";
     import Sidebar from "../components/Sidebar";
-    import Bar_ECharts from "../components/Bar_ECharts";
+    import Data_query from "../components/Data_query";
 
     export default {
         name: "Data",
         components: {
+            Data_query,
             Sidebar,
             Navbar,
-            Bar_ECharts
         }
     }
 </script>

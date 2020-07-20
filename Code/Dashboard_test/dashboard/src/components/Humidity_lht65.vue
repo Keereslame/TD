@@ -19,7 +19,8 @@
         data() {
             return {
                 client: new Influx.InfluxDB({
-                    host: '192.168.1.70',
+                    //host: '192.168.1.70', // maison
+                    host: '153.109.7.30',   //école
                     database: 'lowimpact_food',
                     port:8086
                 }),
@@ -29,7 +30,7 @@
         methods: {
             loadDataChart: function () {
                 let humidity_Serie1;
-                let query_humSerie1 = 'SELECT Hum_SHT FROM ttn_lht65 WHERE time > now() - 7d';
+                let query_humSerie1 = 'SELECT Hum_SHT FROM ttn_lht65 WHERE time > now() - 7h';
                 //console.log("Query:" + query_humSerie1)
                 Promise.all([
                     this.client.query(query_humSerie1),
