@@ -1,20 +1,19 @@
 <template>
     <div class="mt-3">
         <b-card border-variant="light" header="Température des bacs" class="text-center">
-            <Temperature_Line_ECharts :temperature-series="temp_series"/>
+            <Temp_line_highcharts :temperature-series="temp_series"/>
         </b-card>
     </div>
 </template>
-<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
 <script>
-    import Temperature_Line_ECharts from "../components/Temperature_Line_ECharts";
-    import moment from 'moment';
+    //import moment from 'moment';
     import Influx from "influx";
+    import Temp_line_highcharts from "./Temp_line_highcharts";
 
     export default {
         name: "Temperature_amg883",
         components: {
-            Temperature_Line_ECharts
+            Temp_line_highcharts
         },
         data() {
             return {
@@ -31,8 +30,8 @@
                 //console.log("update temperature box charts")
                 let temperature_Serie1;
                 let temperature_Serie2;
-                let query_tempSerie1 = 'SELECT temp_max FROM amg8833'; //WHERE time > now() - 7d';
-                let query_tempSerie2 = 'SELECT temp_min FROM amg8833';// AND time > now() - 7d';
+                let query_tempSerie1 = 'SELECT temp_max FROM amg8833 WHERE time > now() - 7d';
+                let query_tempSerie2 = 'SELECT temp_min FROM amg8833 WHERE time > now() - 7d';
                 //console.log("Query:" + query_tempSerie1)
                 Promise.all([
                     this.client.query(query_tempSerie1),
@@ -41,26 +40,20 @@
                     //console.log(results)
                     //console.log(results[0].length)
                     temperature_Serie1 = results[0].map(a => {
-                        var date = new Date(+(moment(a.time).unix()) * 1000)
+                        //var date = new Date(+(moment(a.time).unix()) * 1000)
                         return {
-                            name: date.toString(),
-                            value: [
-                                [date.getFullYear(), date.getMonth(), date.getDate()].join('/'),
-                                a.temp_max
-                            ]
+                            x: a.time,//(moment(a.time).unix())*1000,
+                            y: parseFloat(a.temp_max)
                         };
                     });
                     Promise.all([
                         this.client.query(query_tempSerie2),
                     ]).then(results => {
                         temperature_Serie2 = results[0].map(a => {
-                            var date = new Date(+(moment(a.time).unix()) * 1000)
+                            //var date = new Date(+(moment(a.time).unix()) * 1000)
                             return {
-                                name: date.toString(),
-                                value: [
-                                    [date.getFullYear(), date.getMonth(), date.getDate()].join('/'),
-                                    a.temp_min
-                                ]
+                                x: a.time,//(moment(a.time).unix())*1000,
+                                y: parseFloat(a.temp_min)
                             };
                         });
 

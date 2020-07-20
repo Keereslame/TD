@@ -20,7 +20,7 @@
                 <b-icon-pencil-square class="item"></b-icon-pencil-square>
             </b-nav-item>
             <b-nav-item href="#/Measure">
-                <b-icon-pencil-square class="item"></b-icon-pencil-square>
+                <b-icon-droplet-half class="item"></b-icon-droplet-half>
             </b-nav-item>
         </b-nav>
     </div>
