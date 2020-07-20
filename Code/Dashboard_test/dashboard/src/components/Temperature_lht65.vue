@@ -1,20 +1,20 @@
 <template>
     <div class="mt-3">
-            <b-card border-variant="light" header="Température de la chambre" class="text-center">
-                <Temperature_Line_ECharts :temperature-series="temp_series"/>
-            </b-card>
+        <b-card border-variant="light" header="Température de la chambre" class="text-center">
+            <Temp_line_highcharts :temperature-series="temp_series"/>
+        </b-card>
     </div>
 </template>
 
 <script>
-    import Temperature_Line_ECharts from "../components/Temperature_Line_ECharts";
-    import moment from 'moment';
+    //import moment from 'moment';
     import Influx from "influx";
+    import Temp_line_highcharts from "./Temp_line_highcharts";
 
     export default {
-        name: "Temperature_lht65",
+        name: "Temp_lht65",
         components: {
-            Temperature_Line_ECharts
+            Temp_line_highcharts
         },
         data() {
             return {
@@ -30,8 +30,8 @@
             loadDataChart: function () {
                 let temperature_Serie1;
                 let temperature_Serie2;
-                let query_tempSerie1 = 'SELECT TempC_SHT FROM ttn_lht65 '; //WHERE time > now() - 7d';
-                let query_tempSerie2 = 'SELECT TempC_DS FROM ttn_lht65';// AND time > now() - 7d';
+                let query_tempSerie1 = 'SELECT TempC_SHT FROM ttn_lht65 WHERE time > now() - 7d';
+                let query_tempSerie2 = 'SELECT TempC_DS FROM ttn_lht65 WHERE time > now() - 7d';
                 //console.log("Query:" + query_tempSerie1)
                 Promise.all([
                     this.client.query(query_tempSerie1),
@@ -40,26 +40,21 @@
                     //console.log(results)
                     //console.log(results[0].length)
                     temperature_Serie1 = results[0].map(a => {
-                        var date = new Date(+(moment(a.time).unix()) * 1000)
+                        //var date = new Date((moment(a.time).unix()) * 1000)
+                        //console.log(a.time)
                         return {
-                            name: date.toString(),
-                            value: [
-                                [date.getFullYear(), date.getMonth(), date.getDate()].join('/'),
-                                a.TempC_SHT
-                            ]
+                            x: a.time,//(moment(a.time).unix())*1000,
+                            y: parseFloat(a.TempC_SHT)
                         };
                     });
                     Promise.all([
                         this.client.query(query_tempSerie2),
                     ]).then(results => {
                         temperature_Serie2 = results[0].map(a => {
-                            var date = new Date(+(moment(a.time).unix()) * 1000)
+                            // var date = new Date((moment(a.time).unix()) * 1000)
                             return {
-                                name: date.toString(),
-                                value: [
-                                    [date.getFullYear(), date.getMonth(), date.getDate()].join('/'),
-                                    a.TempC_DS
-                                ]
+                                x:a.time,//(moment(a.time).unix())*1000,
+                                y: parseFloat(a.TempC_DS)
                             };
                         });
 
@@ -67,12 +62,12 @@
                         //console.log(temperature_Serie1)
                         let finale_series = [{
                             name: 'Température du boîtier',
-                            type: 'line',
-                            data: temperature_Serie1
+                            data: temperature_Serie1,
+                            showNavigator: true,
                         }, {
                             name: 'Température de la sonde',
-                            type: 'line',
-                            data: temperature_Serie2
+                            data: temperature_Serie2,
+                            showNavigator: true,
                         }]
                         //console.log("Serie finale")
                         //console.log(finale_series)

@@ -12,7 +12,7 @@
 
                         <b-card border-variant="light" header="Stock" class="text-center">
                             <b-card-group class="mb-3">
-                                <b-card border-variant="light" header="Drèches">this.temperture_supp</b-card>
+                                <b-card border-variant="light" header="Drèches"></b-card>
                                 <b-card border-variant="light" header="Carottes"></b-card>
                                 <b-card border-variant="light" header="Fruits"></b-card>
                             </b-card-group>                        </b-card>
@@ -28,7 +28,6 @@
                                 <b-nav-item>Stock de vers</b-nav-item>
                             </b-nav>
                         </template>
-                        <Bar_ECharts/>
                     </b-card>
                 </div>
             </b-col>
@@ -38,11 +37,9 @@
 <script>
     import Navbar from "../components/Navbar";
     import Sidebar from "../components/Sidebar";
-    import Bar_ECharts from "../components/Bar_ECharts";
     export default {
         name: "Accueil",
         components: {
-            Bar_ECharts,
             Sidebar,
             Navbar,
         }

@@ -6,8 +6,8 @@
             </b-navbar-brand>
 
             <b-navbar-nav class="ml-auto">
-                <b-nav-item href="user_settings">User settings</b-nav-item>
-                <b-avatar href="profil" class="align-center"></b-avatar>
+                <!--<b-nav-item href="user_settings">User settings</b-nav-item>
+                <b-avatar href="profil" class="align-center"></b-avatar>-->
             </b-navbar-nav>
         </b-navbar>
     </div>

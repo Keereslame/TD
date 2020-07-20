@@ -4,10 +4,12 @@ import router from "./routes/routes";
 import {BootstrapVue, BootstrapVueIcons} from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import HighchartsVue from 'highcharts-vue'
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
+Vue.use(HighchartsVue)
 
 new Vue({
   router: router,

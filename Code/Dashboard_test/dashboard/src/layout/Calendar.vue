@@ -7,12 +7,28 @@
                 <div class="mt-3">
                     <b-card-group deck class="mb-3">
                         <b-card border-variant="light" class="text-center">
-                            <b-calendar></b-calendar>
-                        </b-card>
+                            <b-calendar v-model="value" locale="fr-EU"></b-calendar>                        </b-card>
 
                         <b-card border-variant="light" header="Task" class="text-center">
-                            <b-card-group class="mb-3">
-                            </b-card-group>                        </b-card>
+                            <b-row>
+                                <p>Date: <b>{{ value }}</b></p>
+                            </b-row>
+                            <b-row>
+                                <h4>Feeding</h4>
+                            </b-row>
+                            <b-row>
+                                <p>Batch:</p>
+                            </b-row>
+                            <b-row>
+                                <p>Amount:</p>
+                            </b-row>
+                            <b-row>
+                                <h4>Harvest</h4>
+                            </b-row>
+                            <b-row>
+                                <p>Batch:</p>
+                            </b-row>
+                        </b-card>
                     </b-card-group>
                 </div>
             </b-col>
@@ -29,6 +45,15 @@
         components: {
             Sidebar,
             Navbar,
+        },
+        data(){
+            return{
+                value:'',
+
+            }
+        },
+        methods:{
+
         }
     }
 </script>

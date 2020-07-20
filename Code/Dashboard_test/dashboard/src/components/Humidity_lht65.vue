@@ -1,20 +1,20 @@
 <template>
     <div class="mt-3">
         <b-card border-variant="light" header="Humidité de la chambre" class="text-center">
-            <Humidity_Line_ECharts :humidity-series="hum_series"/>
+            <Humidity_line_highcharts :humidity-series="hum_series"/>
         </b-card>
     </div>
 </template>
 
 <script>
-    import Humidity_Line_ECharts from "../components/Humidity_Line_ECharts";
-    import moment from 'moment';
+    //import moment from 'moment';
     import Influx from "influx";
+    import Humidity_line_highcharts from "./Humidity_line_highcharts";
 
     export default {
         name: "Humidity_lht65",
         components: {
-            Humidity_Line_ECharts
+            Humidity_line_highcharts,
         },
         data() {
             return {
@@ -29,7 +29,7 @@
         methods: {
             loadDataChart: function () {
                 let humidity_Serie1;
-                let query_humSerie1 = 'SELECT Hum_SHT FROM ttn_lht65 '; //WHERE time > now() - 7d';
+                let query_humSerie1 = 'SELECT Hum_SHT FROM ttn_lht65 WHERE time > now() - 7d';
                 //console.log("Query:" + query_humSerie1)
                 Promise.all([
                     this.client.query(query_humSerie1),
@@ -38,13 +38,10 @@
                     //console.log(results)
                     //console.log(results[0].length)
                     humidity_Serie1 = results[0].map(a => {
-                        var date = new Date(+(moment(a.time).unix()) * 1000)
+                        //var date = new Date(+(moment(a.time).unix()) * 1000)
                         return {
-                            name: date.toString(),
-                            value: [
-                                [date.getFullYear(), date.getMonth(), date.getDate()].join('/'),
-                                a.Hum_SHT
-                            ]
+                            x: a.time,
+                            y: parseFloat(a.Hum_SHT)
                         };
                     });
 
@@ -53,7 +50,6 @@
                     //console.log(humidity_Serie1)
                     let finale_series = {
                         name: 'Humidité du boîtier',
-                        type: 'line',
                         data: humidity_Serie1
                     }
                     //console.log("Serie finale")

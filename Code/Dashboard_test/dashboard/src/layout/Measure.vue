@@ -5,9 +5,19 @@
             <b-col class="col-auto sidebar"><Sidebar/></b-col>
             <b-col>
                 <b-card-group deck class="mb-3">
-                    <Temperature_lht65/>
-                    <Humidity_lht65/>
-                    <Temperature_amg883/>
+                    <b-card>
+                        <Temperature_lht65/>
+                    </b-card>
+                    <b-card>
+                        <Humidity_lht65/>
+                    </b-card>
+                </b-card-group>
+                <b-card-group deck class="mb-3">
+                    <b-card>
+                        <Temperature_amg883/>
+                    </b-card>
+                    <b-card>
+                    </b-card>
                 </b-card-group>
             </b-col>
         </b-row>
@@ -45,6 +55,11 @@
     }
     .nav-link{
         color: #2c3e50;
+    }
+
+    #temp_lht65{
+        max-width: 100%;
+        height: 300px;
     }
 
 </style>
