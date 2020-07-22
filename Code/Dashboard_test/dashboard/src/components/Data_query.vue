@@ -10,26 +10,23 @@
 
 <script>
     import Data_graph from "./Data_graph";
-    //import mongoose from "../../node_modules/mongoose"
+    //import Batch from '../models/Batch';
+    //import Template from '../models/Template';
 
     export default {
         name: "Data_query",
         components: {Data_graph},
         data(){
-
             return{
-
-                data_series:[]
+                //batch: require('../models/Batch').BatchModel,
+                data_series:[],
             }
         },
         created() {
-            const mongoose = require("mongoose");
-            mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
-            const db = mongoose.connection;
-            db.on('error', console.error.bind(console, 'connection error:'));
-            db.once('open', function() {
-                console.log("we're connected!");
-            });
+
+        },
+        mounted() {
+
         },
         methods:{
 

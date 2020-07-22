@@ -16,4 +16,5 @@ new Vue({
   render: h => h(App),
 }).$mount('#app')
 
-
+var mongoose = require('mongoose')
+mongoose.connection('mongodb://localhost/lowimpact_food').then(res => console.log(res))
