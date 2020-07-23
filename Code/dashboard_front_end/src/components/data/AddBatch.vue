@@ -168,13 +168,123 @@
             </div>
 
             <div class="form-group">
-                <label for="substrat_initial_mass">Initial mass of substrate</label>
+                <label for="substrat_other">Other mass of substrate</label>
                 <input
                         class="form-control"
-                        id="substrat_initial_mass"
+                        id="substrat_other"
                         required
-                        v-model="batch.substrat_initial_mass"
-                        name="substrat_initial_mass"
+                        v-model="batch.substrat_other"
+                        name="substrat_other"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="other_type">Other type</label>
+                <input
+                        class="form-control"
+                        id="other_type"
+                        required
+                        v-model="batch.other_type"
+                        name="other_type"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="growth_humidity_mass">Humidity mass during growth</label>
+                <input
+                        class="form-control"
+                        id="growth_humidity_mass"
+                        required
+                        v-model="batch.growth_humidity_mass"
+                        name="growth_humidity_mass"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="growth_humidity_freq">Humidity frequency during growth</label>
+                <input
+                        class="form-control"
+                        id="growth_humidity_freq"
+                        required
+                        v-model="batch.growth_humidity_freq"
+                        name="growth_humidity_freq"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="growth_humidity_type">Humidity type during growth</label>
+                <input
+                        class="form-control"
+                        id="growth_humidity_type"
+                        required
+                        v-model="batch.growth_humidity_type"
+                        name="growth_humidity_type"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="humidity_delay">Humidity delay</label>
+                <input
+                        class="form-control"
+                        id="humidity_delay"
+                        required
+                        v-model="batch.humidity_delay"
+                        name="humidity_delay"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="humidity_total_mass">Humidity total mass</label>
+                <input
+                        class="form-control"
+                        id="humidity_total_mass"
+                        required
+                        v-model="batch.humidity_total_mass"
+                        name="humidity_total_mass"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="harvest_mealworm_mass">Harvest mealworm mass</label>
+                <input
+                        class="form-control"
+                        id="harvest_mealworm_mass"
+                        required
+                        v-model="batch.harvest_mealworm_mass"
+                        name="harvest_mealworm_mass"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="harvest_pupa_nb">Harvest pupa number</label>
+                <input
+                        class="form-control"
+                        id="harvest_pupa_nb"
+                        required
+                        v-model="batch.harvest_pupa_nb"
+                        name="harvest_pupa_nb"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="harvest_frass_pure">Harvest frass pure</label>
+                <input
+                        class="form-control"
+                        id="harvest_frass_pure"
+                        required
+                        v-model="batch.harvest_frass_pure"
+                        name="harvest_frass_pure"
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="harvest_frass_filtered">Harvest frass filtered</label>
+                <input
+                        class="form-control"
+                        id="harvest_frass_filtered"
+                        required
+                        v-model="batch.harvest_frass_filtered"
+                        name="harvest_frass_filtered"
                 />
             </div>
 
@@ -189,7 +299,7 @@
 </template>
 
 <script>
-    import BatchDataService from "../services/BatchDataService";
+    import BatchDataService from "../../services/BatchDataService";
 
     export default {
         name: "add-batch",
@@ -223,7 +333,7 @@
                     harvest_mealworm_mass: 0,
                     harvest_pupa_nb: 0,
                     harvest_frass_pure: 0,
-                    harvest_frass_filtered: ""
+                    harvest_frass_filtered: 0
                 },
                 submitted: false
             };

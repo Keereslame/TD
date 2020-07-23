@@ -129,7 +129,7 @@
 </template>
 
 <script>
-    import BatchDataService from "../services/BatchDataService";
+    import BatchDataService from "../../services/BatchDataService";
 
     export default {
         name: "batchs-list",
