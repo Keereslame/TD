@@ -54,7 +54,7 @@
           </div>
         </b-col>
         <b-col>
-          <div class="container mt-3">
+          <div>
             <router-view />
           </div>
         </b-col>

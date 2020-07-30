@@ -3,17 +3,17 @@
         <b-card border-variant="light" header="Humidity" class="text-center">
             {{last_hum_lht65_sht}}
         </b-card>
-        <b-card border-variant="light" header="Temperature" class="text-center">
+        <b-card border-variant="light" header="Probe temperature" class="text-center">
             {{last_temp_lht65_ds}}
         </b-card>
-        <b-card border-variant="light" header="Temperature" class="text-center">
+        <b-card border-variant="light" header="Housing temperature" class="text-center">
             {{last_temp_lht65_sht}}
         </b-card>
 
-        <b-card border-variant="light" header="Temperature" class="text-center">
+        <b-card border-variant="light" header="Maximum box temperature" class="text-center">
             {{last_temp_amg8833_max}}
         </b-card>
-        <b-card border-variant="light" header="Temperature" class="text-center">
+        <b-card border-variant="light" header="Minimum box temperature" class="text-center">
             {{last_temp_amg8833_min}}
         </b-card>
     </b-card-group>
@@ -40,13 +40,13 @@
         },
         methods: {
             loadDataChart: function () {
-                let humidity;// temp_sht, temp_ds, temp_amg_max, temp_amg_min;
+                let humidity, temp_sht, temp_ds, temp_amg_max, temp_amg_min;
                 let query_hum = 'SELECT Hum_SHT FROM ttn_lht65 WHERE time > now() - 5m';
                 //console.log("Query:" + query_humSerie1)
-                //let query_temp_sht = 'SELECT Temp_SHT FROM ttn_lht65 WHERE time > now() -5m';
-                //let query_temp_ds ='SELECT Temp_DS FROM ttn_lht65 WHERE time > now() -5m';
-                //let query_temp_amg_max ='SELECT temp_max FROM amg8833 WHERE time > now() -5m';
-                //let query_temp_amg_min ='SELECT temp_min FROM amg8833 WHERE time > now() -5m';
+                let query_temp_sht = 'SELECT TempC_SHT FROM ttn_lht65 WHERE time > now() -5m';
+                let query_temp_ds ='SELECT TempC_DS FROM ttn_lht65 WHERE time > now() -5m';
+                let query_temp_amg_max ='SELECT temp_max FROM amg8833 WHERE time > now() -5m';
+                let query_temp_amg_min ='SELECT temp_min FROM amg8833 WHERE time > now() -5m';
                 Promise.all([
                     this.client.query(query_hum),
                 ]).then(results => {
@@ -59,8 +59,72 @@
                             y: parseFloat(a.Hum_SHT)
                         };
                     });
+                    //console.log(humidity[0].y)
+                    this.last_hum_lht65_sht = humidity[0].y +"%"
+                }).catch(error => console.log(error))
 
-                    this.last_hum_lht65_sht = humidity
+                Promise.all([
+                    this.client.query(query_temp_sht),
+                ]).then(results => {
+                    //console.log("Result")
+                    //console.log(results)
+                    //console.log(results[0])
+                    temp_sht = results[0].map(a => {
+                        //var date = new Date(+(moment(a.time).unix()) * 1000)
+                        return {
+                            y: parseFloat(a.TempC_SHT)
+                        };
+                    });
+                    //console.log(humidity[0].y)
+                    this.last_temp_lht65_sht = temp_sht[0].y +"°C"
+                }).catch(error => console.log(error))
+
+                Promise.all([
+                    this.client.query(query_temp_ds),
+                ]).then(results => {
+                    //console.log("Result")
+                    //console.log(results)
+                    //console.log(results[0].length)
+                    temp_ds = results[0].map(a => {
+                        //var date = new Date(+(moment(a.time).unix()) * 1000)
+                        return {
+                            y: parseFloat(a.TempC_DS)
+                        };
+                    });
+                    //console.log(humidity[0].y)
+                    this.last_temp_lht65_ds = temp_ds[0].y +"°C"
+                }).catch(error => console.log(error))
+
+                Promise.all([
+                    this.client.query(query_temp_amg_max),
+                ]).then(results => {
+                    //console.log("Result")
+                    //console.log(results)
+                    //console.log(results[0].length)
+                    temp_amg_max = results[0].map(a => {
+                        //var date = new Date(+(moment(a.time).unix()) * 1000)
+                        return {
+                            y: parseFloat(a.temp_max)
+                        };
+                    });
+                    //console.log(humidity[0].y)
+                    this.last_temp_amg8833_max = temp_amg_max[0].y +"°C"
+                }).catch(error => console.log(error))
+
+                Promise.all([
+                    this.client.query(query_temp_amg_min),
+                ]).then(results => {
+                    //console.log("Result")
+                    //console.log(results)
+                    //console.log(results[0].length)
+                    temp_amg_min = results[0].map(a => {
+                        //var date = new Date(+(moment(a.time).unix()) * 1000)
+                        return {
+                            y: parseFloat(a.temp_min)
+                        };
+                    });
+                    //console.log(humidity[0].y)
+                    this.last_temp_amg8833_min = temp_amg_min[0].y +"°C"
                 }).catch(error => console.log(error))
             }
         },
@@ -76,5 +140,8 @@
 </script>
 
 <style scoped>
-
+    .card-header{
+        background-color: lightcoral;
+        text-align: left;
+    }
 </style>

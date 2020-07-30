@@ -1,6 +1,6 @@
 <template>
-    <div class="mt-3">
-        <b-card-group deck class="mb-3">
+    <div class="container-fluid">
+        <b-card-group deck>
             <b-card border-variant="light" header="Today" class="text-center">
                 <h3>Feeding:</h3>
                 <li class="list-group-item"
@@ -30,7 +30,6 @@
             </template>
         </b-card>
     </div>
-
 </template>
 <script>
     //import Navbar from "../components/Navbar";
@@ -138,8 +137,9 @@
         text-align: left;
     }
     .container-fluid{
-        padding-right: 0px;
-        padding-left: 0px;
+        margin-left: auto;
+        margin-right: auto;
+
     }
     .nav-link{
         color: #2c3e50;
