@@ -19,8 +19,8 @@
         data() {
             return {
                 client: new Influx.InfluxDB({
-                    //host: '192.168.1.70', // maison
-                    host: '153.109.7.30',   //école
+                    host: '192.168.1.70', // maison
+                    //host: '153.109.7.30',   //école
                     database: 'lowimpact_food',
                     port:8086
                 }),

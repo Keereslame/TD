@@ -1,65 +1,49 @@
 <template>
-    <b-container fluid>
-        <!--<Navbar/>-->
-        <b-row>
-            <!--<b-col class="col-auto sidebar"><Sidebar/></b-col>-->
-            <b-col>
-                <div class="mt-3">
-                    <b-card-group deck class="mb-3">
-                        <b-card border-variant="light" header="Today" class="text-center">
-                            <h3>Feeding:</h3>
-                            <li class="list-group-item"
-                                v-for="(batch, index) in feeding_today"
-                                :key="index"
-                            >
-                                Batch:{{ batch.name }},
-                                quantity:{{batch.growth_humidity_mass}},
-                                type:{{batch.growth_humidity_type}}
-                            </li>
-                            <h3>Harvest:</h3>
-                            <li class="list-group-item"
-                                v-for="(batch, index) in harvest_today"
-                                :key="index"
-                            >
-                                {{ batch.name }}
-                            </li>
-                        </b-card>
+    <div class="mt-3">
+        <b-card-group deck class="mb-3">
+            <b-card border-variant="light" header="Today" class="text-center">
+                <h3>Feeding:</h3>
+                <li class="list-group-item"
+                    v-for="(batch, index) in feeding_today"
+                    :key="index"
+                >
+                    Batch: {{ batch.name }}
+                </li>
+                <h3>Harvest:</h3>
+                <li class="list-group-item"
+                    v-for="(batch, index) in harvest_today"
+                    :key="index"
+                >
+                    Batch: {{ batch.name }}
+                </li>
+            </b-card>
+            <Card_last_value/>
+        </b-card-group>
+        <b-card border-variant="light">
+            <template v-slot:header>
+                <b-nav card-header tabs>
+                    <b-nav-item>Quantité de vers</b-nav-item>
+                    <b-nav-item>Nombre de bacs</b-nav-item>
+                    <b-nav-item>Feed / Substrat</b-nav-item>
+                    <b-nav-item>Stock de vers</b-nav-item>
+                </b-nav>
+            </template>
+        </b-card>
+    </div>
 
-                        <b-card border-variant="light" header="Stock" class="text-center">
-                            <b-card-group class="mb-3">
-                                <b-card border-variant="light" header="Drèches">0</b-card>
-                                <b-card border-variant="light" header="Carottes">0</b-card>
-                                <b-card border-variant="light" header="Fruits">0</b-card>
-                            </b-card-group>
-                        </b-card>
-                    </b-card-group>
-                </div>
-                <div>
-                    <b-card border-variant="light">
-                        <template v-slot:header>
-                            <b-nav card-header tabs>
-                                <b-nav-item>Quantité de vers</b-nav-item>
-                                <b-nav-item>Nombre de bacs</b-nav-item>
-                                <b-nav-item>Feed / Substrat</b-nav-item>
-                                <b-nav-item>Stock de vers</b-nav-item>
-                            </b-nav>
-                        </template>
-                    </b-card>
-                </div>
-            </b-col>
-        </b-row>
-    </b-container>
 </template>
 <script>
     //import Navbar from "../components/Navbar";
     //import Sidebar from "../components/Sidebar";
     import BatchDataService from "../services/BatchDataService";
+    import Card_last_value from "../components/Sensors/Card_last_value";
 
     export default {
         name: "Accueil",
         components: {
             //Sidebar,
             //Navbar,
+            Card_last_value
         },
         data() {
             return {
@@ -86,7 +70,7 @@
                 this.harvest_today=[];
                 var now = new Date();
                 var day_to_ms = 8.64*Math.pow(10, 7);
-               // console.log(new Date(now));
+                // console.log(new Date(now));
                 for(var i in this.batchs){
                     //console.log("Batch: " + this.batchs[i].name);
                     var date_start = new Date(this.batchs[i].date_start);
@@ -105,8 +89,8 @@
                     {
                         //console.log(index.getTime());
                         if(index.getFullYear() == now.getFullYear() &&
-                        index.getMonth() == now.getMonth() &&
-                        index.getDate() == now.getDate())
+                            index.getMonth() == now.getMonth() &&
+                            index.getDate() == now.getDate())
                         {
                             this.feeding_today.push(this.batchs[i])
                         }
@@ -124,9 +108,9 @@
                             this.feeding_today.push(this.batchs[i])
                         }
                     }
-                    if(date_end_growth.getTime() == now.getFullYear() &&
-                        date_end_growth.getTime() == now.getMonth() &&
-                        date_end_growth.getTime() == now.getDay())
+                    if(date_end_growth.getFullYear() == now.getFullYear() &&
+                        date_end_growth.getMonth() == now.getMonth() &&
+                        date_end_growth.getDate() == now.getDate())
                     {
                         this.harvest_today.push(this.batchs[i])
                     }

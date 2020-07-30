@@ -1,29 +1,30 @@
 <template>
-  <b-container fluid>
-    <div id="app">
-        <!--<nav class="navbar navbar-expand navbar-dark bg-dark">
-          <a href="#" class="navbar-brand">Test batch</a>
-          <div class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a href="/batchs" class="nav-link">Batchs</a>
-            </li>
-            <li class="nav-item">
-              <a href="/add" class="nav-link">Add</a>
-            </li>
-          </div>
-        </nav>-->
-        <div>
-          <b-navbar type="dark" variant="dark">
-            <b-navbar-brand class="align-center" href="/">
-              <b-img width="100px" :src="require('../public/name.png')" class="logo" alt="Logo"></b-img>
-            </b-navbar-brand>
 
-            <b-navbar-nav class="ml-auto">
-              <!--<b-nav-item href="user_settings">User settings</b-nav-item>
-              <b-avatar href="profil" class="align-center"></b-avatar>-->
-            </b-navbar-nav>
-          </b-navbar>
+  <div id="app">
+    <b-container fluid="large">
+      <!--<nav class="navbar navbar-expand navbar-dark bg-dark">
+        <a href="#" class="navbar-brand">Test batch</a>
+        <div class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="/batchs" class="nav-link">Batchs</a>
+          </li>
+          <li class="nav-item">
+            <a href="/add" class="nav-link">Add</a>
+          </li>
         </div>
+      </nav>-->
+      <div>
+        <b-navbar type="dark" variant="dark">
+          <b-navbar-brand class="align-center" href="/">
+            <b-img width="150px" :src="require('../public/name.png')" class="logo" alt="Logo"></b-img>
+          </b-navbar-brand>
+        </b-navbar>
+      </div>
+      <!--<b-navbar-nav class="ml-auto">
+        <b-nav-item href="user_settings">User settings</b-nav-item>
+        <b-avatar href="profil" class="align-center"></b-avatar>
+            </b-navbar-nav>-->
+
       <b-row>
         <b-col class="col-auto sidebar">
           <div>
@@ -58,8 +59,9 @@
           </div>
         </b-col>
       </b-row>
-    </div>
-  </b-container>
+    </b-container>
+  </div>
+
 
 </template>
 
@@ -77,7 +79,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+    margin-top: 0px;
   }
 
   .container-fluid{
