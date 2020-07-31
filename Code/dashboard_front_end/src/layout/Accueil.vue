@@ -17,17 +17,9 @@
                     Batch: {{ batch.name }}
                 </li>
             </b-card>
-            <Card_last_value/>
         </b-card-group>
         <b-card border-variant="light">
-            <template v-slot:header>
-                <b-nav card-header tabs>
-                    <b-nav-item>Quantité de vers</b-nav-item>
-                    <b-nav-item>Nombre de bacs</b-nav-item>
-                    <b-nav-item>Feed / Substrat</b-nav-item>
-                    <b-nav-item>Stock de vers</b-nav-item>
-                </b-nav>
-            </template>
+            <Card_last_value/>
         </b-card>
     </div>
 </template>

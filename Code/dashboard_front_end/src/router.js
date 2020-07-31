@@ -33,7 +33,8 @@ export default new Router({
             component: () => import("./components/data/Batch")
         },
         {
-            path: "/add",
+            path: "/Insert/add",
+            alias: "/add",
             name: "add",
             component: () => import("./components/data/AddBatch")
         },

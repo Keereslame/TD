@@ -2,6 +2,8 @@
     <highcharts class="stock" :constructor-typ="'stockChart'" :options="stockOptions"></highcharts>
 </template>
 
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script>
     export default {
         props: [

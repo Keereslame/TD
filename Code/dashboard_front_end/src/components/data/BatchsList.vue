@@ -12,6 +12,9 @@
                     </button>
                 </div>
             </div>
+            <b-button class="m-3 btn btn-sm btn-light" href="/Insert/add">
+                Add a batch
+            </b-button>
         </div>
         <div class="col-md-6">
             <h4>Batchs List</h4>
@@ -26,9 +29,7 @@
                 </li>
             </ul>
 
-            <button class="m-3 btn btn-sm btn-danger" @click="removeAllBatchs">
-                Remove All
-            </button>
+
         </div>
         <div class="col-md-6">
             <div v-if="currentBatch">

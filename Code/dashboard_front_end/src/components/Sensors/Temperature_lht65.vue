@@ -9,7 +9,7 @@
 <script>
     //import moment from 'moment';
     import Influx from "influx";
-    import Temp_line_highcharts from "../Model_graph/Humidity_line_highcharts";
+    import Temp_line_highcharts from "../Model_graph/Temperature_line_highcharts";
 
     export default {
         name: "Temp_lht65",
