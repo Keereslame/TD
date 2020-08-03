@@ -9,7 +9,7 @@
 <script>
     //import moment from 'moment';
     import Influx from "influx";
-    import Temp_line_highcharts from "../Model_graph/Humidity_line_highcharts";
+    import Temp_line_highcharts from "../Model_graph/Temperature_line_highcharts";
 
     export default {
         name: "Temp_lht65",
@@ -19,8 +19,8 @@
         data() {
             return {
                 client: new Influx.InfluxDB({
-                    //host: '192.168.1.70', // maison
-                    host: '153.109.7.30',   //école
+                    host: '192.168.1.70', // maison
+                    //host: '153.109.7.30',   //école
                     database: 'lowimpact_food',
                     port:8086
                 }),

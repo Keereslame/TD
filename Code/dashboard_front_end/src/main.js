@@ -12,6 +12,6 @@ Vue.use(BootstrapVueIcons)
 Vue.use(HighchartsVue)
 
 new Vue({
-  router,
+  router: router,
   render: h => h(App),
 }).$mount('#app')

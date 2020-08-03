@@ -17,7 +17,6 @@
     "module": "^1.2.5",
     "moment": "^2.27.0",
     "mongoose": "^5.9.25",
-    "qs": "^6.9.4",
     "vue": "^2.6.11"
   },
   "devDependencies": {

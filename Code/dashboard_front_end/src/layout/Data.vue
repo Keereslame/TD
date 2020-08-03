@@ -7,23 +7,14 @@
                 <div class="mt-3">
                     <b-card-group deck class="mb-3">
                         <b-card border-variant="light" header="Quantité de vers" class="text-center">
-                           <!-- <Data_query/>-->
+                            <Quantity_harvest/>
                         </b-card>
 
-                        <b-card border-variant="light" header="Nombre de bacs" class="text-center">
+                        <b-card border-variant="light" header="Nombre de batchs" class="text-center">
+                            <Quantity_boxes/>
                         </b-card>
                     </b-card-group>
                 </div>
-                <div class="mt-3">
-                    <b-card-group deck class="mb-3">
-                        <b-card border-variant="light" header="Feed / Substrat" class="text-center">
-                        </b-card>
-
-                        <b-card border-variant="light" header="Stock de vers" class="text-center">
-                        </b-card>
-                    </b-card-group>
-                </div>
-
             </b-col>
         </b-row>
     </b-container>
@@ -32,11 +23,13 @@
 <script>
    // import Navbar from "../components/Navbar";
     //import Sidebar from "../components/Sidebar";
-    //import Data_query from "../components/Data_query";
-
-    export default {
+    import Quantity_boxes from "../components/data/Quantity_boxes";
+   import Quantity_harvest from "../components/data/Quantity_harvest";
+   export default {
         name: "Data",
         components: {
+            Quantity_harvest,
+            Quantity_boxes
         //    Data_query,
       //      Sidebar,
        //     Navbar,

@@ -1,5 +1,5 @@
 <template>
-    <highcharts class="stock" :constructor-typ="'stockChart'" :options="stockOptions" id="temp_charts"></highcharts>
+    <highcharts class="stock" :constructor-typ="'stockChart'" :options="stockOptions"></highcharts>
 </template>
 
 <script>
