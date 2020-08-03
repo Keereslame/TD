@@ -22,17 +22,19 @@ while True:
     # seconds passed since epoch
     seconds = time.time()
     #print(seconds)
-    ns = seconds * (1000000000)
+    #print(int(seconds))
+    ns = seconds * (1000000000.0)
     #print(ns)
     local_time = time.ctime(seconds)
+    #print(local_time)
     values = []
     json_body = []
     sendData = False
     for row in amg.pixels:
         value = []
         # Pad to 1 decimal place
-        print(["{0:.1f}".format(temp) for temp in row])
-        print("")
+        #print(["{0:.1f}".format(temp) for temp in row])
+        #print("")
         for temp in row:
             value.append(temp)
         #print(value)
@@ -61,7 +63,7 @@ while True:
             "measurement": "amg8833",
             "tags": {
             },
-            "time": local_time,
+            #"time": int(seconds)-7200,
             "fields": {
                 "temp_max": max,
                 "temp_min": min
