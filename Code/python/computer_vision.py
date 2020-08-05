@@ -93,7 +93,10 @@ def mouvement_right():
         col = image.shape[1]
         for x in row:
             for y in col:
-                if image[x][y].rgb
+                if image[x,y] == 0:
+                    print("wihte")
+                else
+                    print("black")
     
 def write_timestamp():
     global nb_photo
