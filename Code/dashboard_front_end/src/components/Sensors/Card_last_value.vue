@@ -26,7 +26,7 @@
         data() {
             return {
                 client: new Influx.InfluxDB({
-                    host: 'adresse IP',
+                    host: '192.168.1.70',
                     database: 'lowimpact_food',
                     port: 8086
                 }),
@@ -41,7 +41,6 @@
             loadDataChart: function () {
                 let humidity, temp_sht, temp_ds, temp_amg_max, temp_amg_min;
                 let query_hum = 'SELECT Hum_SHT FROM ttn_lht65 WHERE time > now() - 5m';
-                //console.log("Query:" + query_humSerie1)
                 let query_temp_sht = 'SELECT TempC_SHT FROM ttn_lht65 WHERE time > now() -5m';
                 let query_temp_ds ='SELECT TempC_DS FROM ttn_lht65 WHERE time > now() -5m';
                 let query_temp_amg_max ='SELECT temp_max FROM amg8833 WHERE time > now() -5m';
@@ -133,7 +132,7 @@
         mounted() {
             setInterval(function(){
                 this.loadDataChart()
-            }.bind(this), 300000) //refresh query toutes les 5min
+            }.bind(this), 300000) //refresh query every 5min
         }
     }
 </script>

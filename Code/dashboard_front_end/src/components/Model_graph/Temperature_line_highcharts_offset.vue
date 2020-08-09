@@ -53,12 +53,6 @@
                             type: 'hour',
                             count: 12,
                             text: '12 h',
-                            //could be perhaps used to set the group by
-                            //events:{
-                            //  click : function(){
-                            //    alert('12 h clicked')
-                            //  }
-                            //}
                         }, {
                             type: 'hour',
                             count: 24,
