@@ -53,11 +53,11 @@ while True:
                     min_temp = j
         max = max_temp
         min = min_temp
-    #print("max =")
-    #print(max)
-    #print("min =")
-    #print(min)
-    #print("\n")
+#     print("max =")
+#     print(max)
+#     print("min =")
+#     print(min)
+#     print("\n")
         json_body = [
         {
             "measurement": "amg8833",
@@ -73,5 +73,5 @@ while True:
     if len(json_body) != 0:
         sendData = client.write_points(json_body, 'n', 'lowimpact_food')
     #print(sendData)
-    time.sleep(300)
+    time.sleep(5)
     

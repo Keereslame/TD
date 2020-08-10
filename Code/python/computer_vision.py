@@ -8,25 +8,24 @@ import imutils
 import datetime as dt
 
 nb_photo = 0
-nb_series = 0
+nb_series = 3
 camera = None
 
-def take_pictures():
+def take_pictures(sec):
     global nb_photo
     global nb_series
     nb_photo = 0
     global camera
-    camera = picamera.PiCamera()
+    if camera == None:
+        camera = picamera.PiCamera()
     
     camera.start_preview()
     nb_series += 1
     for i in range(5):
-        sleep(5)
+        sleep(sec)
         camera.capture('/home/pi/Documents/TD/photo/samba/photo_dashboard/serie{0}'.format(nb_series) + '_image{0}.jpg'.format(nb_photo))    
         nb_photo += 1
     camera.stop_preview()
-    
-    
     
 def split():
     global nb_photo
@@ -172,14 +171,31 @@ def write_timestamp():
         camera.annotate_background = picamera.Color('black')
         camera.annotate_text = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         sleep(5)
-        camera.capture('/home/pi/Documents/TD/photo/samba/photo_dashboard/serie{0}'.format(nb_series) + '_image{0}.jpg'.format(nb_photo-5))
+        camera.capture('/home/pi/Documents/TD/photo/samba/photo_dashboard/serie{0}'.format(nb_series) + '_image{0}.timestamp.jpg'.format(nb_photo-5))
         nb_photo+=1
     camera.stop_preview()
 
 if __name__ == '__main__':
     date_start = dt.datetime.now()
     print('Take pictures')
-    take_pictures();
+    take_pictures(5);
+    print('split')
+    split();
+    print('Difference left')
+    difference_left();
+    print('Difference right')
+    difference_right();
+    print('mouvement left')
+    mouvement_left();
+    print('mouvement right')
+    mouvement_right();
+    print('Timestamp')
+    write_timestamp();
+    date_end = dt.datetime.now()
+    print(date_end - date_start)
+    date_start = dt.datetime.now()
+    print('Take pictures')
+    take_pictures(10);
     print('split')
     split();
     print('Difference left')
