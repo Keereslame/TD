@@ -18,7 +18,7 @@ for i in range(nb_series):
         total_pixel_right = 0
         pourcent_per_image_right = 0
         # load the two input image_rights
-        image_right = cv.imread('/home/pi/Documents/TD/photo/samba/photo_diff/serie{0}'.format(i+1) + '_image{0}'.format(j) +'_diff_right_binary.jpg', cv.COLOR_BGR2GRAY)
+        image_right = cv.imread('/home/pi/Documents/TD/photo/samba/photo_diff/ssim/diff_avec_rotation_avec_perte/serie{0}'.format(i+1) + '_image{0}'.format(j) +'_right_tresh.jpg', cv.COLOR_BGR2GRAY)
         row = image_right.shape[0]
         col = image_right.shape[1]
         for x in range(row):
@@ -43,7 +43,7 @@ for i in range(nb_series):
         total_pixel_left = 0
         pourcent_per_image_left = 0
         # load the two input image_rights
-        image_left = cv.imread('/home/pi/Documents/TD/photo/samba/photo_diff/serie{0}'.format(i+1) + '_image{0}'.format(j) +'_diff_left_binary.jpg', cv.COLOR_BGR2GRAY)
+        image_left = cv.imread('/home/pi/Documents/TD/photo/samba/photo_diff/ssim/diff_avec_rotation_avec_perte/serie{0}'.format(i+1) + '_image{0}'.format(j) +'_left_tresh.jpg', cv.COLOR_BGR2GRAY)
         row = image_left.shape[0]
         col = image_left.shape[1]
         for x in range(row):
