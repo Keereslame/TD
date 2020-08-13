@@ -33,9 +33,10 @@ for i in range(nb_series):
 
         # rotate image with the new bounds and translated rotation matrix
         rotation_mat_left = cv.warpAffine(mat_left, rotation_mat_left, (bound_w, bound_h))
+        new_height, new_width = rotation_mat_left.shape[:2]
         cv.imwrite('/home/pi/Documents/TD/photo/samba/photo_rotate_crop/crop_side/serie{0}'.format(i+1) + '_image{0}'.format(j)+ '_left_rotation.jpg', rotation_mat_left)
 
-        crop_image_left = rotation_mat_left[0:int(height),120:int(width-30)]
+        crop_image_left = rotation_mat_left[0:int(new_height),120:int(new_width-80)]
         
         mat_right = cv.imread('/home/pi/Documents/TD/photo/samba/photo_split/serie{0}'.format(i+1) + '_image{0}'.format(j) + '_right.jpg')
 
@@ -58,9 +59,10 @@ for i in range(nb_series):
 
         # rotate image with the new bounds and translated rotation matrix
         rotated_mat_right = cv.warpAffine(mat_right, rotated_mat_right, (bound_w_r, bound_h_r))
+        new_height_r, new_width_r = rotated_mat_right.shape[:2]
         cv.imwrite('/home/pi/Documents/TD/photo/samba/photo_rotate_crop/crop_side/serie{0}'.format(i+1) + '_image{0}'.format(j)+ '_right_rotation.jpg', rotated_mat_right)
         
-        crop_image_right = rotated_mat_right[0:int(height_r),60:int(width_r-60)]
+        crop_image_right = rotated_mat_right[0:int(new_height_r),60:int(new_width_r-130)]
 
 #         cv.imshow('Rotated',rotated_mat)
 #         cv.imshow('Crop', crop_image)

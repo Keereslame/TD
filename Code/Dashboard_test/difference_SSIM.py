@@ -1,7 +1,5 @@
 # import the necessary packages
-from skimage.measure import compare_ssim
-import argparse
-import imutils
+from skimage.metrics import structural_similarity
 import cv2
 
 nb_series = 5
@@ -18,7 +16,7 @@ for i in range(nb_series):
 
         # compute the Structural Similarity Index (SSIM) between the two
         # images, ensuring that the difference image is returned
-        (score, diff) = compare_ssim(grayA, grayB, full=True)
+        (score, diff) = structural_similarity(grayA, grayB, full=True)
         diff = (diff * 255).astype("uint8")
         print("SSIM: {}".format(score))
 
@@ -43,8 +41,8 @@ for i in range(nb_series):
         # show the output images
         #cv2.imshow("Original", imageA)
         #cv2.imshow("Modified", imageB)
-        #cv2.imshow("Diff", diff)
-        cv2.imwrite('/home/pi/Documents/TD/photo/samba/photo_diff/ssim/diff_sans_modif/serie{0}'.format(i+1) + '_image{0}'.format(j) + '_left_tresh.jpg', thresh)
+        #cv2.imshow("Diff", thresh)
+        #cv2.imwrite('/home/pi/Documents/TD/photo/samba/photo_diff/ssim/diff_sans_modif/serie{0}'.format(i+1) + '_image{0}'.format(j) + '_left_tresh.jpg', thresh)
         
         # load the two input images
         imageC = cv2.imread('/home/pi/Documents/TD/photo/samba/photo_split/serie{0}'.format(i+1) + '_image{0}'.format(j) + '_right.jpg')
@@ -55,7 +53,7 @@ for i in range(nb_series):
 
         # compute the Structural Similarity Index (SSIM) between the two
         # images, ensuring that the difference image is returned
-        (score_r, diff_r) = compare_ssim(grayC, grayD, full=True)
+        (score_r, diff_r) = structural_similarity(grayC, grayD, full=True)
         diff_r = (diff_r * 255).astype("uint8")
         print("SSIM: {}".format(score_r))
 
@@ -79,11 +77,12 @@ for i in range(nb_series):
         # show the output images
         #cv2.imshow("Original", imageA)
         #cv2.imshow("Modified", imageB)
-        #cv2.imshow("Diff", diff)
+        cv2.imshow("Diff", thresh)
+        cv2.imshow("Diff", thresh_r)
 #         cv2.imshow('diff', diff)
 #         cv2.imshow('tresh', thresh)
 #         cv2.imshow('diff_r', diff_r)
 #         cv2.imshow('tresh_r', thresh_r)
-#         cv2.waitKey(0)
-#         cv2.destroyAllWindows()
-        cv2.imwrite('/home/pi/Documents/TD/photo/samba/photo_diff/ssim/diff_sans_modif/serie{0}'.format(i+1) + '_image{0}'.format(j) + '_right_tresh.jpg', thresh_r)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+        #cv2.imwrite('/home/pi/Documents/TD/photo/samba/photo_diff/ssim/diff_sans_modif/serie{0}'.format(i+1) + '_image{0}'.format(j) + '_right_tresh.jpg', thresh_r)

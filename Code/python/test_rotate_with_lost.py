@@ -8,7 +8,7 @@ nb_series = 5
 
 
 for i in range(nb_series):
-    for j in range(nb_photo):
+    for j in range(nb_photo):        
         """
         Rotates an image (angle in degrees) and expands image to avoid cropping
         """
@@ -34,8 +34,8 @@ for i in range(nb_series):
         # rotate image with the new bounds and translated rotation matrix
         rotation_mat_left = cv.warpAffine(mat_left, rotation_mat_left, (bound_w, bound_h))
         cv.imwrite('/home/pi/Documents/TD/photo/samba/photo_rotate_crop/crop_all/serie{0}'.format(i+1) + '_image{0}'.format(j)+ '_left_rotation.jpg', rotation_mat_left)
-
-        crop_image_left = rotation_mat_left[40:int(height),120:int(width-30)]
+        new_height, new_width = rotation_mat_left.shape[:2]
+        crop_image_left = rotation_mat_left[40:int(new_height-40),120:int(new_width-80)]
         
         mat_right = cv.imread('/home/pi/Documents/TD/photo/samba/photo_split/serie{0}'.format(i+1) + '_image{0}'.format(j) + '_right.jpg')
 
@@ -59,12 +59,8 @@ for i in range(nb_series):
         # rotate image with the new bounds and translated rotation matrix
         rotated_mat_right = cv.warpAffine(mat_right, rotated_mat_right, (bound_w_r, bound_h_r))
         cv.imwrite('/home/pi/Documents/TD/photo/samba/photo_rotate_crop/crop_all/serie{0}'.format(i+1) + '_image{0}'.format(j)+ '_right_rotation.jpg', rotated_mat_right)
-        
-        crop_image_right = rotated_mat_right[40:int(height_r),60:int(width_r-60)]
+        new_height_r, new_width_r = rotated_mat_right.shape[:2]
+        crop_image_right = rotated_mat_right[40:int(new_height_r-40),60:int(new_width_r-130)]
 
-#         cv.imshow('Crop left',crop_image_left)
-#         cv.imshow('Crop right', crop_image_right)
-#         cv.waitKey(0) # waits until a key is pressed
-#         cv.destroyAllWindows() # destroys the window showing image
         cv.imwrite('/home/pi/Documents/TD/photo/samba/photo_rotate_crop/crop_all/serie{0}'.format(i+1) + '_image{0}'.format(j) + '_left_crop_all.jpg', crop_image_left)
         cv.imwrite('/home/pi/Documents/TD/photo/samba/photo_rotate_crop/crop_all/serie{0}'.format(i+1) + '_image{0}'.format(j) + '_right_crop_all.jpg', crop_image_right)
