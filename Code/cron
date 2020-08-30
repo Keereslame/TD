@@ -1,0 +1,3 @@
+* */12 * * * python3 /home/pi/Documents/TD/Code/python/computer_vision.py >/dev/null 2>&1
+@reboot node-red-start
+@reboot python3 /home/pi/Documents/TD/Code/python/amg8833.py
